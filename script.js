@@ -6,10 +6,12 @@ const input3 = document.getElementById('input3')
 //values
 const value1 = document.getElementById('val1')
 const value2 = document.getElementById('val2')
+const value3 = document.getElementById('val3')
 
 //buttons
 const button1 = document.getElementById('copy1')
 const button2 = document.getElementById('copy2')
+const button3 = document.getElementById('copy3')
 
 
 function onChange() {
@@ -19,9 +21,11 @@ function onChange() {
 
     const result1 = val1 / val2
     const result2 = val1 / val3
+    const result3 = `clamp(${result2.toFixed()}px, ${result1.toFixed(2)}vw, ${val1.toFixed()}px)`
 
     value1.innerText = result1.toFixed(2) + 'vw'
     value2.innerText = result2.toFixed() + 'px'
+    value3.innerText = result3
 }
 
 
@@ -36,5 +40,9 @@ button1.addEventListener('click', () => {
 
 button2.addEventListener('click', () => {
     navigator.clipboard.writeText(value2.innerText);
-    
+})
+
+
+button3.addEventListener('click', () => {
+    navigator.clipboard.writeText(value3.innerText);
 })
