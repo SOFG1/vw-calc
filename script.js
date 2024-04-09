@@ -21,7 +21,10 @@ function onChange() {
 
     const result1 = val1 / val2
     const result2 = val1 / val3
-    const result3 = `clamp(${result2.toFixed()}px, ${result1.toFixed(2)}vw, ${val1.toFixed()}px)`
+    let result3 = `clamp(${result2.toFixed()}px, ${result1.toFixed(2)}vw, ${val1.toFixed()}px)`
+    if(val1 < 0) {
+        result3 = `clamp(${val1.toFixed()}px, ${result1.toFixed(2)}vw, ${result2.toFixed()}px)`
+    }
 
     value1.innerText = result1.toFixed(2) + 'vw'
     value2.innerText = result2.toFixed() + 'px'
